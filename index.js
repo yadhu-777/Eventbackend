@@ -326,12 +326,12 @@ catch(err){
 
 app.get("/details/:id",async(req,res)=>{
    try{
-    const token = req.cookies.tdtoken;
+  
     const id = req.params.id;
     const data1 = await Eventmodel.findById(id);
-   if(token){
+   
     res.json({datas:data1});
-   }
+ 
    }
    catch(err){
     console.log(err);
