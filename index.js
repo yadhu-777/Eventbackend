@@ -281,7 +281,7 @@ return  res.json({message :"incorrect email or password" , status:false})
   const loginval = craetetoken(userone._id);
  
   res.cookie( "tdtoken" ,loginval,{
- 
+sameSite:"None",
   httpOnly:false,
   maxAge:3*60*60*1000
 })
@@ -355,7 +355,7 @@ const user = await Usermodel.create({username,email,password})
  
 res.cookie("tdtoken",token,{
  httpOnly:false,
-
+sameSite:"None",
  maxAge:3*24*60*60*1000
 })
 res.json({message:"singing succesfull",success:true})
