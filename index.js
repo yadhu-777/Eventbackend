@@ -243,7 +243,7 @@ catch(err){
 
 app.get("/info",async(req,res)=>{
   const val = await Eventmodel.find({});
-  res.json(val);
+return  res.json(val);
 
 });
 
