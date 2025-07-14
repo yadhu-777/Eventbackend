@@ -241,11 +241,16 @@ catch(err){
 
 
 
-app.get("/info",async(req,res)=>{
-  const val = await Eventmodel.find({});
-return  res.json(val);
-
+app.get("/info", async (req, res) => {
+  try {
+    const val = await Eventmodel.find({});
+    return res.json(val);
+  } catch (err) {
+    console.error("🔥 /info route error:", err);
+    res.status(500).json({ error: "Internal Server Error", details: err.message });
+  }
 });
+
 
 app.post("/login",async(req,res)=>{
  
