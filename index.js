@@ -34,7 +34,8 @@ cloudinary.config({
 
 
 
-connect().then(()=>{
+mongoose.connect(Link)
+.then(()=>{
     console.log("connected");
  
 }).catch((err)=>{
