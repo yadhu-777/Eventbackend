@@ -283,6 +283,7 @@ return  res.json({message :"incorrect email or password" , status:false})
   res.cookie( "tdtoken" ,loginval,{
 sameSite:"None",
   httpOnly:false,
+  secure:true,
   maxAge:3*60*60*1000
 })
  return res.json({message:"user logged inn",status:true});
@@ -356,6 +357,7 @@ const user = await Usermodel.create({username,email,password})
 res.cookie("tdtoken",token,{
  httpOnly:false,
 sameSite:"None",
+secure:true,
  maxAge:3*24*60*60*1000
 })
 res.json({message:"singing succesfull",success:true})
