@@ -21,6 +21,9 @@ const Bookinfmodel = require("./Model/Bookingmodel.js");
 const cloudname = process.env.cloud;
 const cloudkey = process.env.cloudkey;
 const secret = process.env.secret;
+const Link1 = process.env.Link1;
+const Link2 = process.env.Link2;
+const Link3 = process.env.Link3;
 cloudinary.config({
   cloud_name: cloudname,
   api_key:cloudkey,
@@ -37,12 +40,12 @@ connect().then(()=>{
 }).catch((err)=>{
     console.log(err);})
 
-
+const allowed = [Link1,Link2,Link3];
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
     app.use(cookieParser());
 app.use(cors(
-  {origin:"https://eventora-five.vercel.app",
+  {origin:allowed,
     credentials:true}
 
 
