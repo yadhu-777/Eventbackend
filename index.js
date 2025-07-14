@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 
 const bcrypt = require("bcrypt");
 const cors = require("cors");
-const Link = process.env.link;
+const Link = process.env.Link;
 const Eventmodel = require("./Model/Model.js");
 const cloudinary = require('cloudinary').v2
 const connect=() => mongoose.connect(Link);
@@ -36,11 +36,8 @@ cloudinary.config({
 
 async function connectDB() {
   try {
-    await mongoose.connect(Link, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-    console.log("✅ MongoDB connected successfully");
+    await mongoose.connect(Link)
+  
   } catch (err) {
     console.error("❌ MongoDB connection failed:", err.message);
     process.exit(1);
