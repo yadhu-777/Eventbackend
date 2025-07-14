@@ -18,11 +18,13 @@ const { craetetoken } = require("./utils/Craetetoken.js");
 var cookieParser = require('cookie-parser');
 const { autherise } = require("./auth/auth.js");
 const Bookinfmodel = require("./Model/Bookingmodel.js");
-
+const cloudname = process.env.cloud;
+const cloudkey = process.env.cloudkey;
+const secret = process.env.secret;
 cloudinary.config({
-  cloud_name: "dyr8hdsah",
-  api_key: "521679796265135",
-  api_secret: "5tLHhJHL5MIFb2t-sxCKYMuZagk",
+  cloud_name: cloudname,
+  api_key:cloudkey,
+  api_secret: secret,
 });
 
 
