@@ -56,8 +56,7 @@ app.use(cors(
 
 ));
 
-del()
-insertfunc();
+
 app.get("/chec", (req, res) => {
   const token = req.cookies.tdtoken;
   if (token && token.length > 0) {
@@ -66,6 +65,12 @@ app.get("/chec", (req, res) => {
     return res.json({ status: true }); // Not signed in
   }
 });
+
+app.delete("/del",async(req,res)=>{
+  
+  const del = await Eventmodel.deleteMany({});
+})
+
 
 
 app.get("/checkevent",autherise,async(req,res)=>{
@@ -76,9 +81,8 @@ app.get("/checkevent",autherise,async(req,res)=>{
 
 
 
-async function del(){
-  const del = await Eventmodel.deleteMany({});
-}
+
+
 
 
 
