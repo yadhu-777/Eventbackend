@@ -72,6 +72,8 @@ app.get("/chec", (req, res) => {
 app.get("/checkevent",autherise,async(req,res)=>{
   if( !req.user){
     return res.json({status:false,message:"not allowed"})
+  }else{
+     return res.json({status:true})
   }
 })
 
