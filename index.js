@@ -56,8 +56,8 @@ app.use(cors(
 
 ));
 
-
-
+del()
+insertfunc();
 app.get("/chec", (req, res) => {
   const token = req.cookies.tdtoken;
   if (token && token.length > 0) {
@@ -76,10 +76,12 @@ app.get("/checkevent",autherise,async(req,res)=>{
 
 
 
-app.delete("/del",async(req,res)=>{
+async function del(){
   const del = await Eventmodel.deleteMany({});
+}
 
-})
+
+
 
 
 
@@ -383,67 +385,67 @@ app.all("/",(req,res)=>{
 app.listen(3000,()=>{
     console.log("connected to server");
 })
-// const data =[
-//   {
-//     "title": "Sunset Music Festival",
-//     "description": "A beachside music festival with live bands, food stalls, and bonfires.",
-//     "price": 999,
-//     "location": "Goa",
-//     "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=60"
-//   },
-//   {
-//     "title": "Tech Workshop 2025",
-//     "description": "A full-day workshop covering the latest trends in AI and web development.",
-//     "price": 1499,
-//     "location": "Bangalore",
-//     "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=60"
-//   },
-//   {
-//     "title": "Street Food Carnival",
-//     "description": "Experience the taste of India with more than 50 food vendors in one place.",
-//     "price": 299,
-//     "location": "Delhi",
-//     "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=60"
-//   },
-//   {
-//     "title": "Art and Wine Evening",
-//     "description": "Enjoy a relaxing evening painting while sipping on fine wine.",
-//     "price": 1200,
-//     "location": "Mumbai",
-//     "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=60"
-//   },
-//   {
-//     "title": "Adventure Trekking Camp",
-//     "description": "3-day trekking and camping trip in the Himalayan foothills.",
-//     "price": 3500,
-//     "location": "Manali",
-//     "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=60"
-//   },
-//   {
-//     "title": "Film Screening Night",
-//     "description": "Open-air screening of award-winning indie films under the stars.",
-//     "price": 400,
-//     "location": "Pune",
-//     "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=60"
-//   },
-//   {
-//     "title": "Cultural Dance Fiesta",
-//     "description": "A colorful showcase of classical and folk dances from across India.",
-//     "price": 600,
-//     "location": "Kochi",
-//     "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=60"
-//   },
-//   {
-//     "title": "Book Reading & Poetry Slam",
-//     "description": "An intimate evening of literature, spoken word, and coffee.",
-//     "price": 250,
-//     "location": "Chennai",
-//     "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=60"
-//   }
-// ]
+const events = [
+  {
+    title: "Summer Beach Festival",
+    description: "Join us for a vibrant beach festival with live music, food stalls, and beach games.",
+    price: 499,
+    location: "Varkala Beach, Kerala",
+    imageUrl: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
+  },
+  {
+    title: "Mountain Trekking Adventure",
+    description: "A guided trekking experience through the Western Ghats with camping under the stars.",
+    price: 1299,
+    location: "Munnar, Kerala",
+    imageUrl: "https://images.unsplash.com/photo-1501785888041-af3ef285b470"
+  },
+  {
+    title: "Backwater Boat Ride",
+    description: "Relax and enjoy a scenic boat ride through the peaceful Kerala backwaters.",
+    price: 899,
+    location: "Alleppey, Kerala",
+    imageUrl: "https://images.unsplash.com/photo-1584270354949-1fe69ec7fb0f"
+  },
+  {
+    title: "Night Food Street Carnival",
+    description: "Taste the flavors of Kerala in a vibrant street food carnival under the stars.",
+    price: 199,
+    location: "Fort Kochi, Kerala",
+    imageUrl: "https://images.unsplash.com/photo-1504674900247-0877df9cc836"
+  },
+  {
+    title: "Cultural Dance Evening",
+    description: "Watch traditional Kathakali and Mohiniyattam performances with live music.",
+    price: 350,
+    location: "Thrissur, Kerala",
+    imageUrl: "https://images.unsplash.com/photo-1638881613385-9d13a8c1c706"
+  },
+  {
+    title: "Rainforest Photography Hike",
+    description: "Capture the beauty of lush green rainforests and exotic wildlife on this photo walk.",
+    price: 749,
+    location: "Wayanad, Kerala",
+    imageUrl: "https://images.unsplash.com/photo-1549880186-7cbb0f63f2d3"
+  },
+  {
+    title: "Yoga and Wellness Retreat",
+    description: "A 3-day rejuvenation retreat with yoga, meditation, and Ayurvedic food.",
+    price: 2499,
+    location: "Kovalam, Kerala",
+    imageUrl: "https://images.unsplash.com/photo-1610622463856-7f9863b8ddf9"
+  },
+  {
+    title: "Tech Innovation Expo",
+    description: "Explore startups, AI demos, robotics showcases, and network with tech leaders.",
+    price: 150,
+    location: "Technopark, Trivandrum",
+    imageUrl: "https://images.unsplash.com/photo-1535223289827-42f1e9919769"
+  }
+];
 
 
 
-// const insertfunc=async()=>{
-//     const val = await Eventmodel.insertMany(data);
-// }
+const insertfunc=async()=>{
+    const val = await Eventmodel.insertMany(events);
+}
