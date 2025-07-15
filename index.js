@@ -245,7 +245,6 @@ catch(err){
 
 
 
-
 app.get("/info", async (req, res) => {
   try {
     const val = await Eventmodel.find({});
